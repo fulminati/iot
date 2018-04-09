@@ -1,0 +1,29 @@
+
+name: fulminati/iot
+
+arduino: ${ARDUINO}
+
+sketches:
+
+  client:
+    board: esp8266
+    filters:
+      - loadcss
+      - loadhtml
+      - yoctojs
+    require:
+      - test
+    port: ${PORT}
+
+  webapp:
+    board: esp8266
+    filters:
+      - dotenv
+    port: ${PORT}
+
+includes:
+  WiFiManager:
+    repository: https://github.com/fulminati/WiFiManager
+
+packages:
+  - http://arduino.esp8266.com/versions/2.4.1/package_esp8266com_index.json
