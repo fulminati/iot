@@ -1,5 +1,6 @@
 #include <ESP8266WiFi.h>
 #include <ESP8266WebServer.h>
+#include "webapp.h"
 
 ESP8266WebServer server(80);
 
@@ -16,11 +17,11 @@ void setup()
     Serial.print("IP address: ");
     Serial.println(WiFi.localIP());
 
-    server.on("/", index);
-    server.on("/info", info);
+    server.on("/", [](){index();});
+    server.on("/info", [](){info();});
 
-    server.on("/app.js", app_js);
-    server.on("/style.css", style_css);
+    server.on("/app.js", [](){app_js();});
+    server.on("/style.css", [](){style_css();});
 
     server.begin();
     Serial.println("Server listening");
@@ -31,11 +32,11 @@ void loop() {
 }
 
 void index() {
-    server.send(200, "text/plain", WEBAPP_HEADER + WEBAPP_INDEX + WEBAPP_FOOTER);
+    server.send(200, "text/plain", String() + WEBAPP_HEADER + WEBAPP_INDEX + WEBAPP_FOOTER);
 }
 
 void info() {
-    server.send(200, "text/plain", WEBAPP_HEADER + WEBAPP_INFO + WEBAPP_FOOTER);
+    server.send(200, "text/plain", String() + WEBAPP_HEADER + WEBAPP_INFO + WEBAPP_FOOTER);
 }
 
 void app_js() {
@@ -43,5 +44,5 @@ void app_js() {
 }
 
 void style_css() {
-    server.send(200, "text/plain", );
+    server.send(200, "text/plain", WEBAPP_STYLE_CSS);
 }

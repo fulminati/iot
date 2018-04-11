@@ -19,9 +19,10 @@ sketches:
   webapp:
     board: esp8266:esp8266:generic
     filters:
+      - loadcss
+      - loadhtml
+      - yoctojs
       - dotenv
-    require:
-      - test3
     port: ${PORT}
 
 includes:
