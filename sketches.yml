@@ -5,18 +5,8 @@ arduino: ${ARDUINO}
 
 sketches:
 
-  client:
-    board: arduino:nano
-    filters:
-      - loadcss
-      - loadhtml
-      - yoctojs
-    require:
-      - test
-      - test2
-    port: ${PORT}
-
-  webapp:
+  iot:
+    #board: arduino:nano
     board: esp8266:esp8266:generic
     filters:
       - loadcss
