@@ -1,5 +1,6 @@
 
 name: fulminati/iot
+version: 0.0.1
 
 arduino: ${ARDUINO}
 
@@ -21,6 +22,8 @@ sketches:
       - loadhtml
       - yoctojs
       - getenv
+      #- filters/myFilter.js
+      #- node_modules/my-public-filter/my-filter.js
     require:
       - AudioZero
       - pstring2
