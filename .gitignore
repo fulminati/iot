@@ -1,3 +1,4 @@
+build/
 ndev_modules/
 node_modules/
 jspm_packages/

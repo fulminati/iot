@@ -1,11 +1,9 @@
 
+@function(cavallo, {
+	echo "ciao"
+})
 
-
-
-
-
-==== @getenv(  '\'', "\"" ) ==== @getenv('TEST2') ====
-
-
-
+@function(cavallo, {
+	echo "ciao"
+})
 
