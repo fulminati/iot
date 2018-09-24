@@ -32,6 +32,7 @@ sketches:
       - AudioZero
       - pstring2
     port: ${PORT}
+    baud: 115200
 
 includes:
   WiFiManager:

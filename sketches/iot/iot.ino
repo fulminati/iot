@@ -6,7 +6,7 @@ ESP8266WebServer server(80);
 
 void setup()
 {
-    Serial.begin(115200);
+    Serial.begin(@config(baud));
     WiFi.begin(@getenv("WIFI_SSID"), @getenv("WIFI_PASSWORD"));
 
     while (WiFi.status() != WL_CONNECTED) {

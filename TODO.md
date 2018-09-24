@@ -28,6 +28,7 @@ TODO
  - Creare il comando 'flash' che scarichi il firmware e lo carichi sulla board dello sketch 
    con il comando speficicato nell'attributo 'flash'
    
+ - Definire un filtro chiamato 'config' che  è in grado di leggere
    
   
  
