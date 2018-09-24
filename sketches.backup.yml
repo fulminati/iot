@@ -1,0 +1,43 @@
+
+name: fulminati/iot
+version: 0.0.1
+
+arduino: ${ARDUINO}
+
+sketches:
+
+  getenv:
+    filters:
+      - getenv
+
+  iot:
+    firmware:
+      download: https://github.com/nodemcu/nodemcu-firmware/releases/download/0.9.5_20150318/nodemcu_float_0.9.5_20150318.bin
+      file: nodemcu.bin
+      flash: python esptool.py --port $[port] write_flash 0x00000 $[file]
+    #board: arduino:nano
+    board: esp8266:esp8266:generic
+    #board: esp8266:esp8266
+    install-board: esp8266:esp8266
+    #board: esp8266:esp8266:2.4.2
+    #board: esp8266
+    filters:
+      - loadcss
+      - loadhtml
+      - yoctojs
+      - getenv
+      #- filters/myFilter.js
+      #- node_modules/my-public-filter/my-filter.js
+    require:
+      - AudioZero
+      - pstring2
+    port: ${PORT}
+    baud: 115200
+
+includes:
+  WiFiManager:
+    type: git
+    link: https://github.com/fulminati/WiFiManager
+
+packages:
+  - http://arduino.esp8266.com/versions/2.4.1/package_esp8266com_index.json
