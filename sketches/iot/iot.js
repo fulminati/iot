@@ -1,5 +1,5 @@
 /*!
- *
+ *  asd
  *
  *
  */
@@ -10,13 +10,19 @@ $.run({
      *
      */
     index: function () {
-        $.title('')
+        console.log("INDEX")
+        $.on('click', 'b0', function () {
+            $.get('/api', {}, function (resp) {
+                alert(resp)
+            });
+        })
     },
 
     /**
      *
      */
-    config: function () {
+    settings: function () {
+        console.log("SETTING")
 
     }
 });
