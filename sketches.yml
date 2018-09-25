@@ -6,6 +6,9 @@ arduino: ${ARDUINO}
 
 sketches:
 
+  serialecho:
+    extends: iot
+
   getenv:
     filters:
       - getenv
@@ -14,7 +17,7 @@ sketches:
     firmware:
       download: https://github.com/nodemcu/nodemcu-firmware/releases/download/0.9.5_20150318/nodemcu_float_0.9.5_20150318.bin
       file: nodemcu.bin
-      flash: python esptool.py --port $[port] write_flash 0x00000 $[file]
+      flash: python -m esptool --port $[port] write_flash 0x00000 $[file]
     #board: arduino:nano
     board: esp8266:esp8266:generic
     #board: esp8266:esp8266
@@ -22,8 +25,8 @@ sketches:
     #board: esp8266:esp8266:2.4.2
     #board: esp8266
     filters:
-      - loadcss
       - loadhtml
+      - yoctocss
       - yoctojs
       - getenv
       #- filters/myFilter.js
